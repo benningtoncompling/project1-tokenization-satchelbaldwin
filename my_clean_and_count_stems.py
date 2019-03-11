@@ -2,7 +2,6 @@
 
 # satchel baldwin
 # 3-8-2019
-# worked with five and kelsey
 
 import sys, re
 from utilities import *
@@ -10,7 +9,8 @@ from utilities import *
 (infile, outfile) = get_files()
 text = clean_text(infile.read())
 words = get_words(text)
-output = sort_and_count_words(count_words(words))
+stems = porter_stemmer(words)
+output = sort_and_count_words(count_words(stems))
 outfile.write(output)
 
 infile.close()
